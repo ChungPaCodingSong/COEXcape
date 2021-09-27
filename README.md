@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 맥스트 VPS SDK 사용
 
 ## VPS 사용
@@ -307,3 +308,6 @@ CameraDevice.GetInstance().SetClippingPlane(arCamera.nearClipPlane, arCamera.far
 ```
 
 을 통해서 Near와 Far를 조절합니다.
+=======
+# COEXcape
+>>>>>>> 2a787cb373bb07de606962d61f974502df78cd88
