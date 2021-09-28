@@ -81,6 +81,11 @@ namespace maxstAR
 			}
 
 			arCamera = GetComponent<Camera>();
+<<<<<<< HEAD
+=======
+
+			CameraDevice.GetInstance().SetClippingPlane(arCamera.nearClipPlane, arCamera.farClipPlane);
+>>>>>>> main
         }
 
 		/// <summary>
@@ -119,6 +124,10 @@ namespace maxstAR
 			{
 				nearClipPlane = arCamera.nearClipPlane;
 				farClipPlane = arCamera.farClipPlane;
+<<<<<<< HEAD
+=======
+				CameraDevice.GetInstance().SetClippingPlane(arCamera.nearClipPlane, arCamera.farClipPlane);
+>>>>>>> main
 			}
 
             arCamera.projectionMatrix = CameraDevice.GetInstance().GetProjectionMatrix();

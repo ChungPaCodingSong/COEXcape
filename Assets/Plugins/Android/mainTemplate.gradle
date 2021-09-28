@@ -10,7 +10,11 @@ dependencies {
 
 android {
     compileSdkVersion **APIVERSION**
+<<<<<<< HEAD
     buildToolsVersion "29.0.3"
+=======
+    buildToolsVersion '**BUILDTOOLS**'
+>>>>>>> main
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

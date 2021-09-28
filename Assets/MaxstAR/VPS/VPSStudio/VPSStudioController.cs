@@ -128,7 +128,11 @@ public class VPSStudioController : MonoBehaviour
             string destinationFile = "";
             string extension = Path.GetExtension(file);
 
+<<<<<<< HEAD
             if (extension == ".fbx" || extension == ".meta" || extension == ".prefab")
+=======
+            if (extension == ".fbx" || extension == ".meta" || extension == ".prefab" || extension == ".mat" || extension == ".obj" || extension == ".jpg" || extension == ".png")
+>>>>>>> main
             {
                 destinationFile = destinationFolder + Path.DirectorySeparatorChar + Path.GetFileName(file);
                 if (Path.GetFileNameWithoutExtension(destinationFile).Contains("Trackable") && Path.GetExtension(destinationFile) == ".prefab")

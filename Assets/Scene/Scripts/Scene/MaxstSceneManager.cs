@@ -26,6 +26,11 @@ public class MaxstSceneManager : MonoBehaviour
 
 	private string serverName = "";
 
+<<<<<<< HEAD
+=======
+	public GameObject arContent;
+
+>>>>>>> main
 	void Awake()
 	{
 		QualitySettings.vSyncCount = 0;
@@ -129,7 +134,11 @@ public class MaxstSceneManager : MonoBehaviour
 		}
 		
 		TrackerManager.GetInstance().StartTracker();
+<<<<<<< HEAD
 	}
+=======
+    }
+>>>>>>> main
 
 	void Update()
 	{
@@ -149,7 +158,10 @@ public class MaxstSceneManager : MonoBehaviour
 			cameraBackgroundBehaviour.UpdateCameraBackgroundImage(trackedImage);
 		}
 
+<<<<<<< HEAD
 		//Debug.Log("arFrame.GetARLocationRecognitionState() : " + arFrame.GetARLocationRecognitionState());
+=======
+>>>>>>> main
 		if (arFrame.GetARLocationRecognitionState() == ARLocationRecognitionState.ARLocationRecognitionStateNormal)
 		{
 			Matrix4x4 targetPose = arFrame.GetTransform();
@@ -159,7 +171,13 @@ public class MaxstSceneManager : MonoBehaviour
 			arCamera.transform.localScale = MatrixUtils.ScaleFromMatrix(targetPose);
 
 			string localizerLocation = arFrame.GetARLocalizerLocation();
+<<<<<<< HEAD
 			//Debug.Log("localizerLocation : " + localizerLocation);
+=======
+
+			Debug.Log(localizerLocation);
+
+>>>>>>> main
 			if (currentLocalizerLocation != localizerLocation)
 			{
 				currentLocalizerLocation = localizerLocation;
@@ -231,9 +249,15 @@ public class MaxstSceneManager : MonoBehaviour
 
 	public void OnClickNavigation()
     {
+<<<<<<< HEAD
 		//Debug.Log("currentLocalizerLocation : " + currentLocalizerLocation);
 		if(currentLocalizerLocation != null)
         {
+=======
+		string navigationLocation = "";
+		if (currentLocalizerLocation != null)
+		{
+>>>>>>> main
 			GameObject trackingObject = null;
 			foreach (VPSTrackable eachTrackable in vPSTrackablesList)
 			{
@@ -241,11 +265,16 @@ public class MaxstSceneManager : MonoBehaviour
 				{
 					if (currentLocalizerLocation == eachLocation)
 					{
+<<<<<<< HEAD
+=======
+						navigationLocation = eachTrackable.navigationLocation;
+>>>>>>> main
 						trackingObject = eachTrackable.gameObject;
 						break;
 					}
 				}
 			}
+<<<<<<< HEAD
 			Debug.Log("currentLocalizerLocation : " + currentLocalizerLocation);
 			if(trackingObject != null)
             {
@@ -253,12 +282,24 @@ public class MaxstSceneManager : MonoBehaviour
 
 				navigationController.MakePath(currentLocalizerLocation, arCamera.transform.position, 
 					"landmark_yangjaestation_b1", new Vector3(77.975977f, 0, 71.859565f), vPSTrackablesList.ToArray(),
+=======
+
+			if (trackingObject != null)
+			{
+				NavigationController navigationController = GetComponent<NavigationController>();
+
+				navigationController.MakePath(navigationLocation, arCamera.transform.position, "landmark_centralcity_f1", new Vector3(-48.353495f, 2.447647f, -53.145505f), arContent,
+>>>>>>> main
 				() => {
 					Debug.Log("No Path");
 				});
 			}
 		}
+<<<<<<< HEAD
     }
+=======
+	}
+>>>>>>> main
 
 	void FixedUpdate()
 	{

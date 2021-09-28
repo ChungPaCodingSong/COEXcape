@@ -43,7 +43,11 @@ public class NavigationController : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     public static void FindPath(string startLocation, Vector3 start, string endLocation, Vector3 end, Action<Dictionary<string,List<PathModel>>> success, Action fail, MonoBehaviour behaviour, string server_name = "")
+=======
+    public static void FindPath(string startLocation, Vector3 start, string endLocation, Vector3 end, Action<PathModel[]> success, Action fail, MonoBehaviour behaviour, string server_name = "")
+>>>>>>> main
     {
         Dictionary<string, string> headers = new Dictionary<string, string>()
         {
@@ -66,6 +70,7 @@ public class NavigationController : MonoBehaviour
         {
             if (resultString != "")
             {
+<<<<<<< HEAD
                 PathModel[] paths = JsonReader.Deserialize<PathModel[]>(resultString);
                 Dictionary<string, List<PathModel>> pathDictionary = new Dictionary<string, List<PathModel>>();
                 foreach(PathModel eachPathModel in paths)
@@ -83,6 +88,27 @@ public class NavigationController : MonoBehaviour
                     pathList.Add(eachPathModel);
                 }
                 success(pathDictionary);
+=======
+                Debug.Log(resultString);
+                PathModel[] paths = JsonReader.Deserialize<PathModel[]>(resultString);
+                
+                //Dictionary<string, List<PathModel>> pathDictionary = new Dictionary<string, List<PathModel>>();
+                //foreach(PathModel eachPathModel in paths)
+                //{
+                //    if(!pathDictionary.ContainsKey(eachPathModel.location))
+                //    {
+                //        pathDictionary[eachPathModel.location] = new List<PathModel>();
+                //    }
+                //    List<PathModel> pathList = pathDictionary[eachPathModel.location];
+                //    if(pathList == null)
+                //    {
+                //        pathList = new List<PathModel>();
+                //    }
+
+                //    pathList.Add(eachPathModel);
+                //}
+                success(paths);
+>>>>>>> main
             }
             else
             {
@@ -122,7 +148,11 @@ public class NavigationController : MonoBehaviour
     }
 
 
+<<<<<<< HEAD
     public void MakePath(string start_location, Vector3 start_position, string end_location, Vector3 end_position, VPSTrackable[] trackables, Action fail, string serverName = "")
+=======
+    public void MakePath(string start_location, Vector3 start_position, string end_location, Vector3 end_position, GameObject arContent, Action fail, string serverName = "")
+>>>>>>> main
     {
         startPosition = start_position;
         endPosition = end_position;
@@ -131,6 +161,7 @@ public class NavigationController : MonoBehaviour
         {
             RemovePaths();
 
+<<<<<<< HEAD
             foreach(VPSTrackable vPSTrackable in trackables)
             {
                 string location = vPSTrackable.localizerLocation[0];
@@ -146,6 +177,9 @@ public class NavigationController : MonoBehaviour
                 }
                 
             }
+=======
+            GameObject pathObject = MakeArrowPath(paths, arContent);
+>>>>>>> main
         },
         () =>
         {
@@ -163,7 +197,11 @@ public class NavigationController : MonoBehaviour
         pathObjects.Clear();
     }
 
+<<<<<<< HEAD
     private GameObject MakeArrowPath(PathModel[] paths, VPSTrackable vPSTrackable)
+=======
+    private GameObject MakeArrowPath(PathModel[] paths, GameObject arContent)
+>>>>>>> main
     {
         List<Vector3> vectors = new List<Vector3>();
         foreach (PathModel eachModel in paths)
@@ -190,7 +228,11 @@ public class NavigationController : MonoBehaviour
         naviGameObject.transform.eulerAngles = new Vector3(0, 0, 0);
         naviGameObject.transform.localScale = new Vector3(1, 1, 1);
 
+<<<<<<< HEAD
         naviGameObject.transform.parent = vPSTrackable.transform;
+=======
+        naviGameObject.transform.parent = arContent.transform;
+>>>>>>> main
 
         Dictionary<GameObject, Dictionary<GameObject, float>> intersectionGameObjects = new Dictionary<GameObject, Dictionary<GameObject, float>>();
 

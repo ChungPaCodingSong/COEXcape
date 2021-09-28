@@ -49,6 +49,10 @@ public class VPSSelectController : MonoBehaviour
             unityCamera.nearClipPlane = 0.01f;
             unityCamera.farClipPlane = 100.0f;
             unityCamera.clearFlags = CameraClearFlags.SolidColor;
+<<<<<<< HEAD
+=======
+            unityCamera.depth = 2;
+>>>>>>> main
             GameObject cameraImage = Resources.Load("MaxstAR/CameraImage") as GameObject;
             float fov = vertical_fov;
             GameObject instance = Instantiate<GameObject>(cameraImage);
